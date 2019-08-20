@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSegment } from '@ionic/angular';
-import { Article } from 'src/app/interfaces/interfaces';
+import { Article, Categoria } from 'src/app/interfaces/interfaces';
 import { NoticiasService } from 'src/app/services/noticias.service';
 
 @Component({
@@ -12,15 +12,19 @@ export class Tab2Page implements OnInit {
 
   @ViewChild(IonSegment, {static: true}) segment: IonSegment;
 
-  categorias: string[] = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology'];
+  categorias: Categoria[] = [{en: 'business', es: 'negocios'},
+                             {en: 'entertainment', es: 'entretenimiento'},
+                            {en: 'general', es: 'general'}, {en: 'health', es: 'salud'},
+                            {en: 'science', es: 'ciencia'}, {en: 'sports', es: 'deportes'},
+                             {en: 'technology', es: 'tecnología'}];
   articles: Article[] = [];
 
   constructor(private noticiasService: NoticiasService) {}
 
   ngOnInit() {
-    this.segment.value = this.categorias[0];
+    this.segment.value = this.categorias[0].en;
 
-    this.buscarCategoria(this.categorias[0]);
+    this.buscarCategoria(this.categorias[0].en);
   }
 
   cambioCategoria(event) {
@@ -28,10 +32,24 @@ export class Tab2Page implements OnInit {
     this.buscarCategoria(event.detail.value);
   }
 
-  buscarCategoria(categoria: string) {
+  loadData(event) {
+    this.buscarCategoria(this.segment.value, event);
+  }
+
+  buscarCategoria(categoria: string, event?) {
     this.noticiasService.getCategoria(categoria).subscribe(res => {
       console.log(res);
+
+      if (res.articles.length === 0) {
+        event.target.complete();
+        return;
+      }
+
       this.articles.push(...res.articles);
     });
+
+    if (event) {
+      event.target.complete();
+    }
   }
 }
