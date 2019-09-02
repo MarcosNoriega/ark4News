@@ -4,8 +4,8 @@
 
 ![](docs/ark4News-opciones.png) ![](docs/ark4News-favoritos.png)
 
-Para probar la aplicacion es necesarion regitrarse en la pagina [News API](https://newsapi.org).
-Una vez registrados podran obtener un api key en el cual deberan colocarlo en el archivo de los environments del proyecto que se encuentra en src/environments 
+Para probar la aplicación es necesario registrarse en la página [News API](https://newsapi.org).
+Una vez registrados podrán obtener un api key, en el cual deberán colocarlo en el archivo de los environments del proyecto que se encuentra en src/environments/environments.ts 
 
 ~~~js
 export const environment = {
@@ -14,4 +14,14 @@ export const environment = {
   apiUrl: 'https://newsapi.org/v2'
 };
 ~~~
+
+La aplicación esta hecha utilizando el framework Ionic junto con Angular por lo tanto para levantar el servidor se debe utilizar el siguente comando dentro de la terminal ubicada en el proyecto
+
+~~~bash
+ionic serve
+~~~
+
+En caso de tener duda alguna le aconsejo leer la documentación de [Ionic Framework](https://ionicframework.com/)
+
+
 
