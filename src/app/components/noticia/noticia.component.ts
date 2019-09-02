@@ -38,7 +38,7 @@ export class NoticiaComponent implements OnInit {
             text: 'Borrar de Favoritos',
             icon: 'trash',
             handler: () => {
-              console.log('Favorito clicked');
+              // console.log('Favorito clicked');
               this.datoslocal.borrarFavoritos(this.noticia);
             }
           };
@@ -47,7 +47,7 @@ export class NoticiaComponent implements OnInit {
             text: 'Favorito',
             icon: 'star',
             handler: () => {
-              console.log('Favorito clicked');
+              // console.log('Favorito clicked');
               this.datoslocal.guardarNoticia(this.noticia);
             }
           };
@@ -58,7 +58,7 @@ export class NoticiaComponent implements OnInit {
           text: 'Compartir',
           icon: 'share',
           handler: () => {
-            console.log('Share clicked');
+            // console.log('Share clicked');
             this.socialSharing.share(this.noticia.title, this.noticia.source.name, '', this.noticia.url);
           }
         }, btnFavorito,
@@ -67,7 +67,7 @@ export class NoticiaComponent implements OnInit {
           icon: 'close',
           role: 'cancel',
           handler: () => {
-            console.log('Cancel clicked');
+            // console.log('Cancel clicked');
           }
         }]
       });

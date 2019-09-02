@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Network } from '@ionic-native/network/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     InAppBrowser,
     SocialSharing,
+    Network,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

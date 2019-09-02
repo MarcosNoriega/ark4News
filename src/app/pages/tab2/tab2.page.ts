@@ -22,6 +22,7 @@ export class Tab2Page implements OnInit {
   constructor(private noticiasService: NoticiasService) {}
 
   ngOnInit() {
+    this.noticiasService.presentLoading();
     this.segment.value = this.categorias[0].en;
 
     this.buscarCategoria(this.categorias[0].en);
@@ -38,7 +39,7 @@ export class Tab2Page implements OnInit {
 
   buscarCategoria(categoria: string, event?) {
     this.noticiasService.getCategoria(categoria).subscribe(res => {
-      console.log(res);
+      // console.log(res);
 
       if (res.articles.length === 0) {
         event.target.complete();
@@ -46,6 +47,7 @@ export class Tab2Page implements OnInit {
       }
 
       this.articles.push(...res.articles);
+      this.noticiasService.dissmisLoading();
     });
 
     if (event) {
