@@ -15,6 +15,12 @@ export const environment = {
 };
 ~~~
 
+luego debera instalar las dependencias de node utilizando el siguente comando en la terminal apuntando al proyecto
+
+~~~
+npm install
+~~~
+
 La aplicación esta hecha utilizando el framework Ionic junto con Angular por lo tanto para levantar el servidor se debe utilizar el siguente comando dentro de la terminal ubicada en el proyecto
 
 ~~~bash
